@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.test1232.databinding.FragmentPostcardBinding
 import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_postcard.*
 
 
 class PostcardFragment : Fragment() {
@@ -99,7 +100,7 @@ class PostcardFragment : Fragment() {
                 val selectedImageUri: Uri? = data?.data
                 if (null != selectedImageUri) {
                     // update the preview image in the layout
-                    imageView.setImageURI(selectedImageUri)
+                    avatar.setImageURI(selectedImageUri)
                 }
             }
         }
