@@ -28,6 +28,9 @@ class MainFragment : Fragment() {
         addListeners(binding)
         setBackgroundOnClick()
         setAvatarOnCLick()
+        onLeftClickButton()
+        onRightClickButton()
+
     }
 
     private fun setBackgroundOnClick() {
@@ -73,13 +76,46 @@ class MainFragment : Fragment() {
 
     }
 
-    private fun sendData() :Bundle{
+    private fun onLeftClickButton() {
+        binding.leftButton.setOnClickListener {
+            if (viewModel.count.value == 1)
+                viewModel.count.value = 4
+
+            viewModel.count.value = viewModel.count.value?.minus(1)
+
+            when (viewModel.count.value) {
+                1 -> binding.middleImageView.setImageResource(R.drawable.fjb1)
+                2 -> binding.middleImageView.setImageResource(R.drawable.fjb2)
+                3 -> binding.middleImageView.setImageResource(R.drawable.fjb3)
+            }
+//            Log.d("count", viewModel.count.value.toString())
+        }
+    }
+
+    private fun onRightClickButton() {
+        binding.rightButton.setOnClickListener {
+            if (viewModel.count.value == 3)
+                viewModel.count.value = 0
+
+            viewModel.count.value = viewModel.count.value?.plus(1)
+
+            when (viewModel.count.value) {
+                1 -> binding.middleImageView.setImageResource(R.drawable.fjb1)
+                2 -> binding.middleImageView.setImageResource(R.drawable.fjb2)
+                3 -> binding.middleImageView.setImageResource(R.drawable.fjb3)
+            }
+
+
+            //          Log.d("countR", viewModel.count.value.toString())
+        }
+    }
+
+    private fun sendData(): Bundle {
         val bundle = Bundle()
         bundle.putString("name", binding.editTextName.text.toString())
         bundle.putString("title", binding.editTextTitle.text.toString())
         bundle.putString("text", binding.editTextText.text.toString())
         return bundle
-
     }
 
 

@@ -14,4 +14,5 @@
     <color name="button_red">#FFe33e10</color>
     <color name="button_pressed">#FF22309c</color>
     <color name="button_pressed_stroke">#FF2664b5</color>
+    <color name="button_image">#FF465aab</color>
 </resources>

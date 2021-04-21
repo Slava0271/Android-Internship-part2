@@ -27,14 +27,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             app:imageUrl="@{@drawable/background_snow}"
-            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteX="-16dp"
             tools:layout_editor_absoluteY="0dp">
 
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/editTextName"
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
@@ -45,16 +45,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewName" />
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/leftButton"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="70dp"
-            android:background="@drawable/image_button_selecter"
-            android:src="@{ContextCompat.getDrawable(context,viewmodel.buttonLeftRes)}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonLaunch" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/middleImageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="50dp"
+            app:imageLoad="@{viewmodel.imageUrl}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/editTextName" />
 
         <TextView
             android:id="@+id/textViewName"
@@ -66,6 +65,40 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/editTextName"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonTest"
+            android:layout_width="160dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/butons_style"
+            android:text="@{viewmodel.buttonTestText}"
+            android:textColor="@{ContextCompat.getColor(context,viewmodel.textColorButton)}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/editTextName"
+            app:layout_constraintTop_toTopOf="@+id/editTextName" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/leftButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/image_button_selecter"
+            android:src="@{ContextCompat.getDrawable(context,viewmodel.buttonLeftRes)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/middleImageView"
+            app:layout_constraintStart_toEndOf="@+id/editTextName" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/rightButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/image_button_selecter"
+            android:layout_marginBottom="50dp"
+            android:src="@{ContextCompat.getDrawable(context,viewmodel.buttonRightRes)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/middleImageView" />
 
         <TextView
             android:id="@+id/textViewTitle"
@@ -80,7 +113,7 @@
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/editTextTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
@@ -104,7 +137,7 @@
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/editTextText"
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
@@ -116,36 +149,22 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewText" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonTest"
-            android:layout_width="160dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/butons_style"
-            android:text="@{viewmodel.buttonTestText}"
-            android:textColor="@{ContextCompat.getColor(context,viewmodel.textColorButton)}"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText" />
-
-        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonLaunch"
             android:layout_width="160dp"
             android:layout_height="45dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
             android:background="@drawable/button_test_style_border"
             android:text="@{viewmodel.buttonLaunchText}"
             android:textColor="@{ContextCompat.getColor(context,viewmodel.textColorButton)}"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonTest" />
+            app:layout_constraintStart_toEndOf="@+id/buttonTest"
+            app:layout_constraintTop_toTopOf="@+id/buttonTest" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:scaleType="centerCrop"
             android:src="@{ContextCompat.getDrawable(context,viewmodel.avatarRes)}"
@@ -153,28 +172,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/circleImageView"
             tools:srcCompat="@tools:sample/avatars" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/middleImageView"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="50dp"
-            app:imageLoad="@{viewmodel.imageUrl}"
-            app:layout_constraintEnd_toStartOf="@+id/rightButton"
-            app:layout_constraintStart_toEndOf="@+id/leftButton"
-            app:layout_constraintTop_toBottomOf="@+id/buttonLaunch" />
-
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/rightButton"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/image_button_selecter"
-            android:src="@{ContextCompat.getDrawable(context,viewmodel.buttonRightRes)}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonLaunch" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
